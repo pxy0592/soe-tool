@@ -11,7 +11,8 @@ lock = threading.Lock()
 
 def get_url(gui_url, gui_port, tenant_id):
     url = "http://{0}:{1}/platform/rest/ego/services/{2}/instances/1".format(gui_url, gui_port, tenant_id)
-    r = requests.get(url, auth=('Admin', 'Admin'))
+    headers = {'Accept': 'application/json'}
+    r = requests.get(url, auth=('Admin', 'Admin'), header=headers)
     if r.status_code != 200:
        print r.text
        exit(-1)

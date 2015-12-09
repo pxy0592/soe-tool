@@ -27,7 +27,7 @@ def summary(rfp, logger, message):
        if float(v) > max:
          max = float(v)
          max_tenant = k
-       elif float(v) < min:
+       if float(v) < min:
          min = float(v)
          min_tenant = k
 
